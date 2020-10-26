@@ -17,12 +17,31 @@ import ru.avalon.java.dev.j10.labs.Sort;
  */
 public class ShellSort implements Sort {
 
-    /**
-     * {@inheritDoc}
-     */
-    public void sort(int[] array) {
-        /*
-         * TODO(Студент): Реализовать метод sort класса ShellSort
-         */
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	public void sort(int[] array) {
+		/*
+		 * TODO(Студент): Реализовать метод sort класса ShellSort
+		 */
+		int[] a = {9, 5, 3, 2, 1}; // Конкретная последовательность шагов может быть и другой. Единственное правило состоит в том, чтобы последний шаг был равен 1.
+		int i, j, x, gap;
+		for (int k = 0; k < 5; k++) {
+			gap = a[k];
+			for (i = gap; i < array.length; i++) {
+				x = array[i];
+				for (j = i - gap; j >= 0 && array[j] > x; j -= gap)
+					array[j + gap] = array[j];
+				array[j + gap] = x;
+			}
+		}
+	}
+
+	//    for ( gap = n / 2 ; gap > 0 ; gap /= 2 )
+	//		for ( i = gap ; i < n ; ++i )
+	//			for ( j = i - gap ; j >= 0 && v[j] > v[j+gap] ; j -= gap )
+	//			{
+	//				temp = v[j] ;
+	//				v[j] = v[j+gap] ;
+	//				v[j+gap] = temp ;
 }

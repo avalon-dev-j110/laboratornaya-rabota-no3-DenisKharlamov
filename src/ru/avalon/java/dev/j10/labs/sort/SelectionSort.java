@@ -21,5 +21,24 @@ public class SelectionSort implements Sort {
         /*
          * TODO(Студент): Реализовать метод sort класса SelectionSort
          */
+    	boolean exchange;
+    	int a = 0;
+    	int b = 0;
+    	for (int i = 0; i < array.length - 1; i++) {
+    		exchange = false;
+    		a = i;
+    		b = array[i];
+    		for (int j = i + 1; j < array.length; j++) {
+    			if (array[j] < b) {
+    				a = j;
+    				b = array[j];
+    				exchange = true;
+    			}
+    		}
+    		if (exchange) {
+    			array[a] = array[i];
+    			array[i] = b;
+    		}
+    	}
     }
 }
